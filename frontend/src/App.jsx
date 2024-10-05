@@ -1,29 +1,40 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import About from './pages/Aboutus';
-import Contact from './pages/Contactus';
-import Women from './pages/Women';
-import Womenp from './pages/Womenp';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Navbar from './components/Navbar'; 
-import './App.css';
+import CartProvider from './pages/CartContext'; // Import the CartProvider
 
-const App = () => {
+import Home from './pages/Home';
+import Men from './pages/Men';
+import Women from './pages/Women';
+import Cart from './pages/Cart';
+import Womenp from './pages/Womenp';
+import Aboutus from './pages/Aboutus';
+import Contactus from './pages/Contactus';
+import SignIn from './pages/SignIn';
+import Login from './pages/Login';
+
+function App() {
   return (
-    <Router>
-      <div className="app-container">
-        <Navbar /> 
+    <CartProvider> {/* Wrap your app with CartProvider */}
+      <Router>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/Women" element={<Women />} />
-          <Route path="/Womenp" element={<Womenp />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/men" element={<Men />} />
+          <Route path="/women" element={<Women />} />
+          <Route path="/women/:id" element={<Womenp />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/contactus" element={<Contactus />} />
+          <Route path="*" element={<h1>404 - Not Found</h1>} />
         </Routes>
         <Footer />
-      </div>
-    </Router>
+      </Router>
+    </CartProvider>
   );
-};
+}
 
 export default App;

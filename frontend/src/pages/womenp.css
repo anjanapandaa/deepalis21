@@ -109,18 +109,21 @@
 }
 
 .quantity button {
-  background-color: #f0f0f0; 
-  color: #333;  
+  background-color: #f0f0f0;
+  color: #333;
   border: 1px solid #ccc;
-  padding: 5px 10px;
+  padding: 10px; /* Increased padding for a better touch target */
   cursor: pointer;
+  width: 30px; /* Fixed width for buttons */
 }
 
 .quantity input {
-  color: #333;  
+  color: #333;
   border: 1px solid #ccc;
   text-align: center;
   width: 40px;
+  padding: 5px; /* Added padding for better appearance */
+  font-size: 16px; /* Adjusted font size for better readability */
 }
 
 .add-to-cart {
